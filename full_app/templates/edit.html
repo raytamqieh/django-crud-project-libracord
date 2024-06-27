@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body  %}
+<h3>Ubah Data</h3>
+<form method="POST" action="/update/{{ buku.id }}">
+    {% csrf_token %}
+<div class="form-group">
+    <label>Judul</label>
+    <input type="text" class="form-control"name="judul" required value="{{ buku.judul }}">
+  </div>
+<div class="form-group">
+    <label>Deskripsi</label>
+    <textarea name="deskripsi" class="form-control" requred>{{ buku.deskripsi }}</textarea>
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <input type="text" class="form-control"name="author" required value="{{ buku.author }}">
+  </div>
+  <div class="form-group">
+    <label>Tahun</label>
+    <input type="text" class="form-control"name="tahun" required value="{{ buku.tahun }}">
+  </div>
+
+            <a href="/show" class="btn btn-danger">Batal</a>
+            <button type="submit" class="btn btn-primary">Ubah</button>
+
+</form>
+
+{% endblock %}          

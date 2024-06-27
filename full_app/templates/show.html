@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body  %}
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+        <th>No</th>
+        <th>Judul</th>
+        <th>Deskripsi</th>
+        <th>Author</th>
+        <th>Tahun</th>
+        <th>Action</th>
+    </tr>
+</thead>
+    {% for i in buku %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.judul }}</td>
+        <td>{{ i.deskripsi }}</td>
+        <td>{{ i.author }}</td>
+        <td>{{ i.tahun }}</td>
+        <td>
+            <a href="edit/{{i.id}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Ubah </a>
+            <br> <br>
+            <a href="delete/{{ i.id }}" onclick="return confirm('Yakin Hapus data')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i>Hapus</a>
+        </td>
+    </tr>
+
+
+    {% endfor %}
+</table>
+{% endblock %}

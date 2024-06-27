@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+        .navbar {
+            height: 10vh;
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: #343a40 !important;
+        }
+        .navbar-brand {
+            font-weight: 600;
+            color: #f8f9fa !important;
+            font-size: 1.5rem;
+            margin-right: 20px;
+        }
+        .navbar-nav .nav-item .nav-link {
+            font-weight: 600;
+            color: #f8f9fa !important;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #adb5bd !important;
+        }
+        .form-inline .form-control {
+            border-radius: 50px;
+            transition: box-shadow 0.3s;
+        }
+        .form-inline .form-control:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+        }
+        .form-inline .btn {
+            border-radius: 50px;
+        }
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin-bottom: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            border-radius: 8px;
+            margin-top: 40px;
+            padding: 20px 0;
+            background-color: #343a40;
+            color: #f8f9fa;
+            text-align: center;
+        }
+        .icon-nav {
+            margin-right: 5px;
+        }
+    </style>
+    <title>Libracord</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-md">
+        <a class="navbar-brand" href="/">Libracord</a> 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><i class="fas fa-home icon-nav"></i>Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/load_form"><i class="fas fa-plus icon-nav"></i>Add New</a>
+                </li>
+            </ul>
+            <form method="POST" action="search" class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                <input name="name" class="form-control mr-sm-2" type="search" placeholder="Cari Judul" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i> Search</button>
+            </form>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+
+    <footer>
+        <h8>Libracord &copy; 2024</h8>
+    </footer>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
